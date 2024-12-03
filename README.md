@@ -1,138 +1,131 @@
+# LinuxMonitoring
 
-# LinuxMonitoring v2.0
+## Real-time monitoring and system analysis
 
-### Мониторинг и исследование системы в реальном времени
-
-Проект представляет собой набор скриптов и решений для мониторинга и анализа состояния системы. В процессе работы я выполнил несколько задач, каждая из которых направлена на решение конкретной проблемы мониторинга и работы с файловой системой.
-
----
-
-## Выполненные задачи
-
-### Part 1. Генерация тестовых файлов и папок
-**Что сделано:**  
-Я разработал скрипт для автоматического создания структуры каталогов и файлов с заданными параметрами. В скрипте реализованы:
-- Создание папок с уникальными именами, основанными на переданных параметрах.
-- Генерация файлов определенного размера и формата.
-- Контроль за оставшимся свободным пространством (скрипт останавливается при достижении порога 1 ГБ).
-
-**Зачем:**  
-Этот скрипт помогает создавать тестовую среду для мониторинга и анализа, позволяя симулировать реальные сценарии нагрузки на файловую систему.
+This project is a set of scripts and tools for monitoring and analyzing the system state. Throughout the process, I completed several tasks, each addressing a specific issue related to monitoring and file system operations.
 
 ---
 
-### Part 2. Засорение файловой системы
-**Что сделано:**  
-Я написал скрипт, который случайным образом создает файлы и папки по всей системе (кроме определенных директорий, таких как `bin` или `sbin`). Скрипт:
-- Генерирует случайные имена файлов и папок.
-- Создает их в случайных локациях.
-- Завершается при достижении ограничения свободного места.
-
-**Зачем:**  
-Эта задача позволяет протестировать системы мониторинга, симулируя сценарии засорения файловой системы.
-
----
-
-### Part 3. Очистка файловой системы
-**Что сделано:**  
-Я разработал скрипт для удаления файлов и папок, созданных предыдущими скриптами. Реализованы три метода очистки:
-1. По лог-файлу.
-2. По дате и времени создания.
-3. По имени и маске.
-
-**Зачем:**  
-Это решение необходимо для быстрого устранения последствий некорректной работы или для удаления тестовых данных после завершения экспериментов.
-
----
-
-### Part 4. Генерация логов nginx
-**Что сделано:**  
-Я написал скрипт для генерации лог-файлов nginx в комбинированном формате. Логи включают:
-- Случайные IP-адреса.
-- HTTP-методы (GET, POST и т.д.).
-- Ответы сервера (коды 2xx, 4xx, 5xx).
-- Случайные запросы и даты.
-
-**Зачем:**  
-Логи используются для тестирования систем анализа, включая GoAccess, Prometheus и Grafana.
-
----
-
-### Part 5. Анализ логов
-**Что сделано:**  
-Я создал скрипт для анализа логов nginx с использованием `awk`. Он может:
-- Сортировать записи по кодам ответа.
-- Выводить уникальные IP-адреса.
-- Показывать запросы с ошибками (4xx и 5xx).
-- Отображать IP-адреса, связанные с ошибочными запросами.
-
-**Зачем:**  
-Этот анализ позволяет быстро понять, какие проблемы существуют в системе и откуда они исходят.
-
----
-
-### Part 6. Визуализация с помощью GoAccess
-**Что сделано:**  
-Я настроил утилиту GoAccess для визуализации данных из логов nginx. Открыл веб-интерфейс GoAccess для удобного просмотра.
-
-**Зачем:**  
-GoAccess предоставляет удобный способ визуального анализа логов в реальном времени.
-
----
-
-### Part 7. Мониторинг с использованием Prometheus и Grafana
-**Что сделано:**  
-- Установил и настроил Prometheus и Grafana на виртуальной машине.
-- Создал дашборд для мониторинга CPU, RAM, дискового пространства и операций ввода/вывода.
-- Провел нагрузочное тестирование с помощью утилиты `stress`.
-
-**Зачем:**  
-Эти инструменты обеспечивают мощные возможности для мониторинга системных метрик и анализа производительности.
-
----
-
-### Part 8. Готовая панель мониторинга
-**Что сделано:**  
-Я загрузил и настроил готовую панель управления из Grafana Labs (Node Exporter Quickstart and Dashboard). Провел сетевые и дисковые тесты, проверяя нагрузку на интерфейсы.
-
-**Зачем:**  
-Использование готовых решений ускоряет процесс настройки мониторинга и анализа.
-
----
-
-### Part 9. Собственный node_exporter
-**Что сделано:**  
-Я написал скрипт, который собирает основные метрики системы (CPU, RAM, дисковое пространство) и генерирует страницу в формате Prometheus. Эта страница обновляется автоматически.
-
-**Зачем:**  
-Это решение позволяет глубже понять, как работают инструменты мониторинга, и дает возможность создавать собственные метрики для специфических задач.
-
----
-
-## Итог
-Проект LinuxMonitoring помог мне глубже понять работу систем мониторинга, научил создавать и анализировать логи, визуализировать данные и разрабатывать эффективные bash-скрипты для автоматизации задач. Теперь я могу применять эти знания для управления и оптимизации системных ресурсов в реальном времени.
-
----
-
-### 🚀 Как использовать
-1. Клонируйте репозиторий:
+### 🚀 How to Use
+1. Clone the repository:
    ```bash
    git clone git@github.com:kieuhaiha/Linux_Monitoring.git
    ```
-2. Перейдите в папку проекта:
+2. Navigate to the project folder:
    ```bash
    cd Linux_Monitoring
    ```
-3. Следуйте инструкциям в каждой задаче, чтобы выполнить аналогичные тесты и настройки.
-
 ---
 
-### 🛠 Требования
+### 🛠 Requirements
 - Ubuntu Server 20.04 LTS
-- Bash версии 5.0 и выше
-- Установленные утилиты: `awk`, `df`, `GoAccess`, `Prometheus`, `Grafana`, `stress`, `iperf3`
+- Bash 5.0 or higher
+- Installed utilities: `awk`, `df`, `GoAccess`, `Prometheus`, `Grafana`, `stress`, `iperf3`
 
 ---
 
-### 🙌 Участие
-Если у вас есть идеи для улучшения, создавайте [Pull Request](https://github.com/kieuhaiha/Linux_Monitoring/pulls) или открывайте [Issue](https://github.com/kieuhaiha/Linux_Monitoring/issues).
+## Completed Tasks
+
+### 1. Generating Test Files and Directories
+**What was done:**  
+I developed a script to automatically create a structure of directories and files based on specific parameters. The script includes:
+- Creation of directories with unique names based on the given parameters.
+- Generation of files with specific sizes and formats.
+- Free space monitoring (the script stops when the free space reaches 1 GB).
+
+**Why:**  
+This script helps to set up a test environment for monitoring and analysis, simulating real-world scenarios of file system load.
+
+---
+
+### 2. File System Cluttering
+**What was done:**  
+I wrote a script that randomly creates files and directories across the system (excluding certain directories like `bin` or `sbin`). The script:
+- Generates random names for files and directories.
+- Creates them in random locations.
+- Stops when the free space reaches a predefined limit.
+
+**Why:**  
+This task helps to test monitoring systems by simulating file system clutter scenarios.
+
+---
+
+### 3. Cleaning the File System
+**What was done:**  
+I developed a script to delete files and directories created by the previous scripts. It supports three cleaning methods:
+1. Using a log file.
+2. By creation date and time.
+3. By name pattern.
+
+**Why:**  
+This solution is essential for quickly resolving issues caused by incorrect operations or for cleaning up test data after experiments.
+
+---
+
+### 4. Generating Nginx Logs
+**What was done:**  
+I created a script to generate Nginx log files in a combined format. The logs include:
+- Random IP addresses.
+- HTTP methods (GET, POST, etc.).
+- Server responses (2xx, 4xx, 5xx).
+- Random requests and dates.
+
+**Why:**  
+The logs are used to test analysis systems, including GoAccess, Prometheus, and Grafana.
+
+---
+
+### 5. Log Analysis
+**What was done:**  
+I created a script to analyze Nginx logs using `awk`. It can:
+- Sort records by response codes.
+- Output unique IP addresses.
+- Display requests with errors (4xx and 5xx).
+- Show IP addresses associated with erroneous requests.
+
+**Why:**  
+This analysis helps to quickly identify problems in the system and their sources.
+
+---
+
+### 6. Visualization with GoAccess
+**What was done:**  
+I configured the GoAccess utility to visualize Nginx log data and opened its web interface for easier access.
+
+**Why:**  
+GoAccess provides a convenient way to visually analyze logs in real time.
+
+---
+
+### 7. Monitoring with Prometheus and Grafana
+**What was done:**  
+- Installed and configured Prometheus and Grafana on a virtual machine.
+- Created a dashboard to monitor CPU, RAM, disk space, and I/O operations.
+- Conducted stress testing using the `stress` utility.
+
+**Why:**  
+These tools offer powerful capabilities for monitoring system metrics and analyzing performance.
+
+---
+
+### 8. Preconfigured Monitoring Dashboard
+**What was done:**  
+I downloaded and configured a ready-made monitoring dashboard from Grafana Labs (Node Exporter Quickstart and Dashboard). I conducted network and disk tests to check interface loads.
+
+**Why:**  
+Using prebuilt solutions speeds up the setup process for monitoring and analysis.
+
+---
+
+### 9. Custom Node Exporter
+**What was done:**  
+I wrote a script that collects key system metrics (CPU, RAM, disk space) and generates a Prometheus-compatible page. This page updates automatically.
+
+**Why:**  
+This solution provides deeper insights into how monitoring tools work and allows the creation of custom metrics for specific tasks.
+
+---
+
+## Summary
+The LinuxMonitoring project helped me gain a deeper understanding of monitoring systems, learn how to create and analyze logs, visualize data, and develop efficient Bash scripts for automation. I can now apply this knowledge to manage and optimize system resources in real time.
+
