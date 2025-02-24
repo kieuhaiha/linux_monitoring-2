@@ -23,8 +23,7 @@ The russian version of the task can be found in the repository.
     3.5. [Monitoring](#part-5-monitoring)  
     3.6. [GoAccess](#part-6-goaccess)  
     3.7. [Prometheus and Grafana](#part-7-prometheus-and-grafana)  
-    3.8. [A ready-made dashboard](#part-8-a-ready-made-dashboard)  
-    3.9. [Bonus. Your own node_exporter](#part-9-bonus-your-own-node_exporter)  
+    3.8. [A ready-made dashboard](#part-8-a-ready-made-dashboard)   
 
 
 ## Chapter I
@@ -241,17 +240,3 @@ Why not get a ready-made dashboard that has all the metrics you need?
 ##### Run a network load test using **iperf3**
 
 ##### Check the network interface load
-
-
-## Part 9. Bonus. Your own *node_exporter*
-
-It is always useful and convenient to analyse the system with special utilities, but you have always wanted to understand how they work.
-
-**== Task ==**
-
-Write a bash script or a C program that collects information on basic system metrics (CPU, RAM, hard disk (capacity)). The script or a program should make a html page in **Prometheus** format, which will be served by **nginx**. \
-The page itself can be refreshed within a bash script or a program (in a loop), or using the cron utility, but not more often than every 3 seconds.
-
-##### Change the **Prometheus** configuration file so it collects information from the page you created.
-
-##### Run the same tests as in [Part 7](#part-7-prometheus-and-grafana)
