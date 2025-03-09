@@ -1,6 +1,6 @@
 # LinuxMonitoring v2.0
 
-> Project work report is available in the file [report.md](./report.md)
+> Project work report is available in the file [report.md](./src/report.md)
 
 Real-time monitoring and research of the system status.
 
