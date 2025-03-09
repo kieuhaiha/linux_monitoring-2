@@ -1,7 +1,6 @@
 # LinuxMonitoring v2.0
 
-> При старте работы над проектом просим вас постараться хронометрировать время работы над проектом.
-> По завершении работы над проектом просим вас ответить на два вопроса [в этом опросе](https://forms.gle/V8JrqwsAJAnCgq8QA)
+> Project work report is available in the file [report.md](./report.md)
 
 Real-time monitoring and research of the system status.
 
